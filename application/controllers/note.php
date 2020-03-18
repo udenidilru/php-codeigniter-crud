@@ -48,15 +48,15 @@ class Note extends CI_Controller {
         if ($this->form_validation->run() === FALSE)
         {  
             if(empty($id)){
-              redirect( base_url('note/create') ); 
+              redirect( base_url('index.php/note/create') ); 
             }else{
-             redirect( base_url('note/edit/'.$id) ); 
+             redirect( base_url('index.php/note/edit/'.$id) ); 
             }
         }
         else
         {
             $data['note'] = $this->notes_model->createOrUpdate();
-            redirect( base_url('note') ); 
+            redirect( base_url('index.php/note') ); 
         }
          
     }
@@ -73,6 +73,6 @@ class Note extends CI_Controller {
                  
         $notes = $this->notes_model->delete($id);
          
-        redirect( base_url('note') );        
+        redirect( base_url('index.php/note') );        
     }
 }
